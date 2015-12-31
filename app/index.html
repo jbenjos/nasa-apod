@@ -43,24 +43,19 @@
       <main class="mdl-layout__content">
 
         <!--  overview -->
-        <div class="mdl-layout__tab-panel is-active" id="overview">
+        <div class="mdl-layout__tab-panel is-active" id="overview" ng-controller="overviewController">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-              <img src="http://apod.nasa.gov/apod/image/1512/Foxfur_Vermette_3074.jpg" width="870" height="400" alt="" style="margin-bottom: -60px;"/>
+              <img src="{{apodInfo.url}}" width="870" height="400" style="margin-bottom: -60px;"/>
               <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">The Fox Fur Nebula</h2>
+                <h2 class="mdl-card__title-text">{{apodInfo.title}}</h2>
               </div>
               <div class="mdl-card__supporting-text">
-                This interstellar canine is formed of cosmic dust and gas interacting with the energetic
-                light and winds from hot young stars.  The shape, visual texture, and color, combine to give
-                 the region the popular name Fox Fur Nebula. The characteristic blue glow on the left is dust
-                  reflecting light from the bright star S Mon, the bright star just below the top edge of the
-                   featured image. Textured red and black areas are a combination of the cosmic dust and reddish
-                   emission from ionized hydrogen gas.
+                {{apodInfo.explanation}}
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://api.nasa.gov/api.html#apod">
-                  See APOD APi
+                  Check out the API
                 </a>
               </div>
             </div>
@@ -69,8 +64,8 @@
             </button>
             <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
               <a href="https://twitter.com/apod" target="_blank"><li class="mdl-menu__item">@apod on Twitter</li></a>
-              <a href="https://twitter.com/apod" target="_blank"><li class="mdl-menu__item">Official Site</li></a>
-              <a href="https://twitter.com/apod" target="_blank"><li class="mdl-menu__item">Open API</li></a>
+              <a href="http://apod.nasa.gov/apod/astropix.html" target="_blank"><li class="mdl-menu__item">Official Site</li></a>
+              <a href="https://api.nasa.gov/api.html" target="_blank"><li class="mdl-menu__item">NASA Open API</li></a>
             </ul>
           </section>
 
@@ -147,8 +142,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/overviewController.js"></script>
+        <script src="scripts/services/apodService.js"></script>
         <!-- endbuild -->
   </body>
 </html>
