@@ -1,9 +1,12 @@
 ![Octonaut](https://octodex.github.com/images/octonaut.jpg)
 
 # nasa-apod
+[![Code Climate](https://codeclimate.com/github/felucia/nasa-apod/badges/gpa.svg)](https://codeclimate.com/github/felucia/nasa-apod)
+[![Build Status](https://travis-ci.org/felucia/nasa-apod.svg)](https://travis-ci.org/felucia/nasa-apod)
 
 Sign in with your Twitter account, and update your profile background image everyday with NASA [Astronomy Picture of the Day](http://apod.nasa.gov/apod/astropix.html).
-> The Astronomy Picture of the Day is a website maintained by NASA and the Technological University of Michigan. Every day a different **awesome** image or picture of the universe is displayed with a short written explanation by a professional astronomer. We love it, and we want it to be on our social media backgrounds!
+
+The Astronomy Picture of the Day is a website maintained by NASA and the Technological University of Michigan. Every day a different **awesome** image or picture of the universe is displayed with a short written explanation by a professional astronomer. We love it, and we want it to be on our social media backgrounds!
 
 ## Getting started
 
