@@ -26,6 +26,7 @@ angular.module('apodApp')
       apodService.getApod()
         .success(function (data) {
           $scope.apodInfo = data;
+          console.log($scope.apodInfo);
         }).error(function () {
           $scope.error = "Sorry, something happens when tried to get the picture";
         });
