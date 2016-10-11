@@ -1,38 +1,132 @@
 <!doctype html>
-<html lang="en" ng-app="apodApp">
+<html>
+  <body ng-app="apodApp" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" />
+        <!-- endbower -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/card.css">
+        <!-- endbuild -->
 
-  <head>
-    <meta charset="UTF-8">
-    <title>apod Project</title>
-    <base href="/">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- START custom links  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- END custom links -->
-  </head>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Get NASA Astronomy Picture of the Day</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active">Picture of the day</a>
+          <a href="#getontwitter" class="mdl-layout__tab">Boost your Twitter</a>
+          <a href="#about" class="mdl-layout__tab">About</a>
+        </div>
 
-  <body>
+        <style>
+          #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+          }
+        </style>
+      </header>
 
-    <!-- START nav bar -->
-    <nav class="nav-wrapper teal blue lighten-2" ng-include="'views/navbar.view.html'"></nav> 
-    <!-- END nav bar -->
+      <main class="mdl-layout__content">
 
-    <!-- START main -->
-    <main class="container-fluid" ng-view /></main>
-    <!-- END main -->
-    
-    <!-- START footer -->
-    <footer class="page-footer teal blue lighten-1" ng-include="'views/footer.view.html'"></footer>
-    <!-- END footer -->
+        <!--  overview -->
+        <div class="mdl-layout__tab-panel is-active" id="overview" ng-controller="overviewController">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <img src="{{apodInfo.url}}" width="870" height="400" style="margin-bottom: -60px;"/>
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{apodInfo.title}}</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                {{apodInfo.explanation}}
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://api.nasa.gov/api.html#apod">
+                  Check out the API
+                </a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+              <a href="https://twitter.com/apod" target="_blank"><li class="mdl-menu__item">@apod on Twitter</li></a>
+              <a href="http://apod.nasa.gov/apod/astropix.html" target="_blank"><li class="mdl-menu__item">Official Site</li></a>
+              <a href="https://api.nasa.gov/api.html" target="_blank"><li class="mdl-menu__item">NASA Open API</li></a>
+            </ul>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>These awesome NASA pictures...</h4>
+                The Astronomy Picture of the Day is a website maintained by NASA and the Technological University of Michigan.
+                Every day a different image or picture of the universe is displayed with a short written explanation by a professional
+                astronomer.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="http://apod.nasa.gov/apod/archivepix.html" class="mdl-button">See all them</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+        </div>
+        <!--  /.overview -->
+
+        <!--  get-on-twitter -->
+        <div class="mdl-layout__tab-panel" id="getontwitter">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+
+            </div>
+          </section>
+        </div>
+        <!--  /.get-on-twitter -->
+
+        <!--  about -->
+        <div class="mdl-layout__tab-panel" id="about">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+
+            </div>
+          </section>
+        </div>
+        <br/>
+        <!--  /.about -->
+
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              Built with <i class="material-icons">favorite_border</i> by <a href="https://github.com/felucia">Felucia</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <a href="https://github.com/felucia/nasa-apod" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -42,15 +136,14 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/materialize/bin/materialize.js"></script>
+    <script src="bower_components/material-design-lite/material.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/home.controller.js"></script>
-    <script src="scripts/controllers/about.controller.js"></script>
-    <script src="scripts/services/apod.service.js"></script>
-    <!-- endbuild -->
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/overviewController.js"></script>
+        <script src="scripts/services/apodService.js"></script>
+        <!-- endbuild -->
   </body>
 </html>
